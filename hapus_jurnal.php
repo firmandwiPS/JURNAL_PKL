@@ -1,40 +1,26 @@
 <?php
 $koneksi = new mysqli("localhost", "root", "", "jurnal_pkl");
 
+if (isset($_POST['id_jurnal'])) {
+    $id = $_POST['id_jurnal'];
 
-if (isset($_POST['nis'])) {
-    $nis = $_POST['nis'];
+    // Ambil nama file foto
+    $qFoto = mysqli_query($koneksi, "SELECT paraf_pembimbing FROM jurnal WHERE id_jurnal = '$id'");
+    $dFoto = mysqli_fetch_assoc($qFoto);
+    $foto = $dFoto['paraf_pembimbing'];
 
-    // Ambil nama file paraf dari database berdasarkan NIS
-    $querySelect = "SELECT paraf_pembimbing FROM jurnal WHERE nis = '$nis'";
-    $resultSelect = mysqli_query($koneksi, $querySelect);
-
-    if ($resultSelect && mysqli_num_rows($resultSelect) > 0) {
-        $row = mysqli_fetch_assoc($resultSelect);
-        $fotoParaf = $row['paraf_pembimbing'];
-
-        // Hapus file foto paraf jika ada
-        if (!empty($fotoParaf)) {
-            $filePath = "foto/" . $fotoParaf;
-            if (file_exists($filePath)) {
-                unlink($filePath); // Hapus file dari folder
-            }
+    // Hapus file dari folder jika ada
+    if (!empty($foto)) {
+        $path = "foto/" . $foto;
+        if (file_exists($path)) {
+            unlink($path);
         }
-
-        // Hapus data dari tabel jurnal
-        $queryDelete = "DELETE FROM jurnal WHERE nis = '$nis'";
-        $resultDelete = mysqli_query($koneksi, $queryDelete);
-
-        if ($resultDelete) {
-            echo "sukses";
-        } else {
-            echo "gagal_hapus_data";
-        }
-
-    } else {
-        echo "data_tidak_ditemukan";
     }
-} else {
-    echo "nis_tidak_dikirim";
+
+    // Hapus dari database
+    $query = "DELETE FROM jurnal WHERE id_jurnal = '$id'";
+    $result = mysqli_query($koneksi, $query);
+
+    echo $result ? "sukses" : "gagal";
 }
 ?>
