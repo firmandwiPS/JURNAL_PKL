@@ -1,7 +1,10 @@
 <?php
+// Koneksi ke database
 $koneksi = new mysqli("localhost", "root", "", "jurnal_pkl");
 
+// Periksa apakah permintaan menggunakan metode POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Ambil data dari POST
     $nis_lama = $_POST['nis_lama'];
     $nis = $_POST['nis'];
     $nama_siswa = $_POST['nama_siswa'];
@@ -12,6 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $no_hp = $_POST['no_hp'];
     $alamat = $_POST['alamat'];
 
+    // Validasi jika nis diubah, cek apakah nis baru sudah dipakai siswa lain
+    if ($nis !== $nis_lama) {
+        $cekNis = $koneksi->query("SELECT nis FROM siswa WHERE nis = '$nis'");
+        if ($cekNis->num_rows > 0) {
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'NIS sudah digunakan siswa lain, silakan gunakan NIS yang berbeda.'
+            ]);
+            exit;
+        }
+    }
+
+    // Proses update data siswa
     $query = "UPDATE siswa SET 
                 nis = '$nis',
                 nama_siswa = '$nama_siswa',
@@ -26,11 +42,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
-        echo json_encode(['status' => 'success']);
+        echo json_encode(['status' => 'success', 'message' => 'Data siswa berhasil diperbarui.']);
     } else {
-        echo json_encode(['status' => 'failed', 'error' => mysqli_error($koneksi)]);
+        echo json_encode([
+            'status' => 'failed',
+            'message' => 'Gagal mengubah data',
+            'error' => mysqli_error($koneksi)
+        ]);
     }
+
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request']);
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Invalid request method. Gunakan metode POST.'
+    ]);
 }
 ?>

@@ -19,13 +19,20 @@ $tanggal_selesai = $_POST['tanggal_selesai'] ?? '';
 $no_hp = $_POST['no_hp'] ?? '';
 $alamat = $_POST['alamat'] ?? '';
 
-// Validasi minimal input
+// Validasi input minimal
 if (empty($nis) || empty($nama_siswa)) {
     echo json_encode(["status" => "error", "message" => "NIS dan Nama wajib diisi"]);
     exit;
 }
 
-// Masukkan data
+// Cek apakah NIS sudah ada
+$cek = $koneksi->query("SELECT * FROM siswa WHERE nis = '$nis'");
+if ($cek->num_rows > 0) {
+    echo json_encode(["status" => "error", "message" => "NIS sudah digunakan, tidak boleh sama"]);
+    exit;
+}
+
+// Insert data jika valid
 $query = "INSERT INTO siswa (nis, nama_siswa, jenis_kelamin, asal_sekolah, tanggal_mulai, tanggal_selesai, no_hp, alamat)
           VALUES ('$nis', '$nama_siswa', '$jenis_kelamin', '$asal_sekolah', '$tanggal_mulai', '$tanggal_selesai', '$no_hp', '$alamat')";
 
@@ -34,3 +41,4 @@ if ($koneksi->query($query)) {
 } else {
     echo json_encode(["status" => "error", "message" => "Query gagal: " . $koneksi->error]);
 }
+?>
