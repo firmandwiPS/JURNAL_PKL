@@ -20,7 +20,12 @@ Sekian presentasi dari kami, terima kasih. Wassalamualaikum warahmatullahi wabar
 
 
 
+
+
+
+
 Pembicara 2 – Fitur Jurnal, Presensi, Laporan, Backend & Penutup
+
 3. Fitur Jurnal Harian
 "Fitur ini digunakan oleh siswa untuk mencatat aktivitas harian PKL, seperti pekerjaan yang dilakukan, pelajaran yang diperoleh, dan kendala yang dihadapi."
 
