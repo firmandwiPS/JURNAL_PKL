@@ -1,6 +1,6 @@
 Selanjutnya saya akan menjelaskan dari sisi Databasenya
 
-1. Tabel siswa
+## 1. Tabel siswa
 Tabel ini merupakan inti dari database, karena menyimpan data pribadi dan identitas lengkap siswa peserta PKL.
 Informasi yang disimpan meliputi:
 
@@ -18,7 +18,7 @@ Kontak siswa, seperti nomor HP dan alamat rumah
 
 Tabel ini menjadi dasar untuk menghubungkan data presensi, jurnal kegiatan, dan laporan akhir dari setiap siswa.
 
-🕒 2. Tabel presensi
+## 2. Tabel presensi
 Tabel ini berfungsi untuk mencatat kehadiran siswa setiap hari selama pelaksanaan PKL.
 Setiap entri presensi mencakup:
 
@@ -36,7 +36,7 @@ Alfa – jika siswa tidak hadir tanpa keterangan
 
 Data ini berguna untuk evaluasi kedisiplinan dan komitmen siswa selama PKL.
 
-📘 3. Tabel jurnal
+## 3. Tabel jurnal
 Tabel jurnal digunakan untuk mendokumentasikan kegiatan harian siswa selama mengikuti PKL.
 Di setiap harinya, siswa diharapkan mengisi jurnal yang berisi:
 
@@ -50,7 +50,7 @@ Paraf pembimbing, sebagai bukti validasi bahwa kegiatan tersebut benar dilakukan
 
 Tabel ini sangat penting untuk menilai aktivitas harian dan keterlibatan siswa dalam kegiatan industri atau instansi tempat PKL berlangsung.
 
-📄 4. Tabel laporan_pkl
+## 4. Tabel laporan_pkl
 Setelah PKL selesai, siswa diwajibkan menyusun laporan dan mengerjakan project yang berkaitan dengan pengalaman mereka.
 Tabel laporan_pkl digunakan untuk menyimpan file akhir dari hasil PKL siswa, yang terdiri dari:
 
