@@ -1,3 +1,5 @@
+Selanjutnya saya akan menjelaskan dari sisi Databasenya
+
 1. Tabel siswa
 Tabel ini merupakan inti dari database, karena menyimpan data pribadi dan identitas lengkap siswa peserta PKL.
 Informasi yang disimpan meliputi:
