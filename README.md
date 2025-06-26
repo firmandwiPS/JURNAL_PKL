@@ -68,3 +68,10 @@ Android menggunakan Volley/Retrofit untuk mengirim dan menerima data JSON dari P
 PHP menerima data (POST/GET), memprosesnya dengan MySQL, lalu mengembalikan JSON response.
 
 Android mengolah data JSON dan menampilkannya di UI.
+
+
+
+
+
+
+https://link.chess.com/friend/OgnALZ
