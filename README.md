@@ -1,67 +1,61 @@
-Pembicara 1 – Pembukaan & Fitur Home dan Siswa
+1. Tabel siswa
+Tabel ini merupakan inti dari database, karena menyimpan data pribadi dan identitas lengkap siswa peserta PKL.
+Informasi yang disimpan meliputi:
 
-Aplikasi ini terdiri dari beberapa fitur utama yang terintegrasi, yaitu: Home, Siswa, Jurnal Harian, Presensi, dan Laporan PKL."
+NIS sebagai identitas unik siswa
 
-1. Fitur Home
-"Halaman Home menampilkan tampilan utama aplikasi, berisi informasi penting seperti deskripsi singkat jurusan, grafik statistik presensi, slider gambar kegiatan, dan menu akses cepat ke fitur lainnya."
+Nama lengkap siswa
 
-"Home juga dirancang menggunakan Material Design dan Lottie Animation, agar tampil menarik dan mudah digunakan oleh siswa."
+Jenis kelamin
 
-2. Fitur Siswa
-"Fitur Siswa digunakan untuk mengelola data siswa yang mengikuti PKL."
+Asal sekolah
 
-"Setiap siswa memiliki identitas unik berupa NIS (Nomor Induk Siswa) yang digunakan sebagai kunci utama untuk menghubungkan data presensi, jurnal, dan laporan."
+Tanggal mulai dan selesai PKL, yang menunjukkan durasi pelaksanaan PKL
 
-"Di fitur ini, admin dapat menambahkan data siswa baru, mengubah data jika ada kesalahan, dan juga menghapus data siswa yang sudah tidak aktif." 
+Kontak siswa, seperti nomor HP dan alamat rumah
 
-"Dengan struktur ini, aplikasi Jurnal Siswa PKL mampu menyimpan data siswa secara rapi, terintegrasi, dan hanya bisa diakses oleh pengguna yang bersangkutan.
-Aplikasi ini tidak hanya memudahkan siswa dalam mencatat kegiatan PKL, tapi juga memudahkan pembimbing dalam melakukan pemantauan dan penilaian secara digital.
-Sekian presentasi dari kami, terima kasih. Wassalamualaikum warahmatullahi wabarakatuh."
+Tabel ini menjadi dasar untuk menghubungkan data presensi, jurnal kegiatan, dan laporan akhir dari setiap siswa.
 
+🕒 2. Tabel presensi
+Tabel ini berfungsi untuk mencatat kehadiran siswa setiap hari selama pelaksanaan PKL.
+Setiap entri presensi mencakup:
 
+NIS siswa (untuk mengaitkan dengan data di tabel siswa)
 
+Tanggal kehadiran
 
+Keterangan kehadiran, yang bisa berupa:
 
+Hadir – jika siswa datang
 
+Izin – jika siswa tidak hadir tapi memberi keterangan
 
-Pembicara 2 – Fitur Jurnal, Presensi, Laporan, Backend & Penutup
+Alfa – jika siswa tidak hadir tanpa keterangan
 
-3. Fitur Jurnal Harian
-"Fitur ini digunakan oleh siswa untuk mencatat aktivitas harian PKL, seperti pekerjaan yang dilakukan, pelajaran yang diperoleh, dan kendala yang dihadapi."
+Data ini berguna untuk evaluasi kedisiplinan dan komitmen siswa selama PKL.
 
-"Jurnal disimpan berdasarkan NIS siswa, sehingga setiap data hanya dapat dilihat dan dikelola oleh siswa yang bersangkutan."
+📘 3. Tabel jurnal
+Tabel jurnal digunakan untuk mendokumentasikan kegiatan harian siswa selama mengikuti PKL.
+Di setiap harinya, siswa diharapkan mengisi jurnal yang berisi:
 
-"Siswa dapat:
+Tanggal kegiatan
 
-Menambah jurnal harian
+Uraian kegiatan, yaitu deskripsi atau ringkasan pekerjaan/tugas yang dilakukan
 
-Mengedit jurnal yang sudah dicatat
+Catatan pembimbing, yaitu komentar, saran, atau evaluasi dari pembimbing terhadap kegiatan siswa
 
-Menghapus jurnal jika tidak diperlukan"
+Paraf pembimbing, sebagai bukti validasi bahwa kegiatan tersebut benar dilakukan dan telah dikonfirmasi oleh pembimbing
 
-4. Fitur Presensi
-"Fitur ini memungkinkan siswa untuk mengisi kehadiran harian selama PKL dengan memilih status Hadir, Izin, atau Alfa."
+Tabel ini sangat penting untuk menilai aktivitas harian dan keterlibatan siswa dalam kegiatan industri atau instansi tempat PKL berlangsung.
 
-"Sama seperti jurnal, data presensi juga terhubung melalui NIS."
+📄 4. Tabel laporan_pkl
+Setelah PKL selesai, siswa diwajibkan menyusun laporan dan mengerjakan project yang berkaitan dengan pengalaman mereka.
+Tabel laporan_pkl digunakan untuk menyimpan file akhir dari hasil PKL siswa, yang terdiri dari:
 
-"Siswa dapat melakukan:
+File laporan, berupa dokumen yang menjelaskan seluruh kegiatan dan pembelajaran selama PKL
 
-Tambah presensi baru
+File project, yaitu hasil karya atau tugas akhir yang dikerjakan siswa
 
-Ubah status presensi
+Nilai akhir PKL, yaitu hasil penilaian dari pembimbing berdasarkan kehadiran, jurnal, laporan, dan proyek
 
-Hapus entri presensi jika salah input"
-
-5. Fitur Laporan PKL
-"Laporan PKL dihasilkan secara otomatis dari data jurnal dan presensi yang telah diisi oleh siswa."
-
-"Laporan ini disusun berdasarkan NIS dan hanya menampilkan data milik siswa tersebut."
-
-"Laporan dapat dilihat dan diunduh dalam format PDF untuk keperluan dokumentasi atau penilaian."
-
-6. Backend
-"Dari sisi backend, aplikasi ini menggunakan MySQL sebagai database, dan PHP untuk membangun REST API."
-
-"Setiap fitur—baik presensi, jurnal, maupun siswa—terhubung melalui kolom nis sebagai foreign key, agar relasi data tetap konsisten."
-
-"Aplikasi Android terhubung ke server menggunakan Volley, dan data dikirim dalam format JSON."
+Tabel ini mencerminkan hasil akhir dari proses PKL dan menjadi dasar evaluasi kinerja siswa secara keseluruhan.
