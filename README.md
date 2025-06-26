@@ -61,3 +61,10 @@ File project, yaitu hasil karya atau tugas akhir yang dikerjakan siswa
 Nilai akhir PKL, yaitu hasil penilaian dari pembimbing berdasarkan kehadiran, jurnal, laporan, dan proyek
 
 Tabel ini mencerminkan hasil akhir dari proses PKL dan menjadi dasar evaluasi kinerja siswa secara keseluruhan.
+
+## Alur Integrasi
+Android menggunakan Volley/Retrofit untuk mengirim dan menerima data JSON dari PHP.
+
+PHP menerima data (POST/GET), memprosesnya dengan MySQL, lalu mengembalikan JSON response.
+
+Android mengolah data JSON dan menampilkannya di UI.
